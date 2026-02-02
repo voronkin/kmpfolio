@@ -51,18 +51,15 @@ class DetailScreen : Screen {
                 verticalArrangement = Arrangement.spacedBy(12.dp),
                 maxItemsInEachRow = 2 // На мобилках будет 2 в ряд или 1
             ) {
-                // Большая карточка (занимает всю ширину)
                 BentoCard(
                     modifier = Modifier.fillMaxWidth().height(160.dp),
                     title = "Android & KMP",
                     subtitle = "10+ years of native development",
                     backgroundGradient = listOf(Color(0xFF434343), Color(0xFF000000))
                 ) {
-                    // Здесь может быть твоя кастомная иконка или Canvas-рисунок
                     Text("🤖", fontSize = 60.sp, modifier = Modifier.offset(x = 10.dp, y = 10.dp))
                 }
 
-                // Маленькая карточка 1
                 BentoCard(
                     modifier = Modifier.weight(1f).height(140.dp),
                     title = "LLM",
@@ -70,7 +67,7 @@ class DetailScreen : Screen {
                     backgroundGradient = listOf(Color(0xFF00c6ff), Color(0xFF0072ff))
                 )
 
-                // Маленькая карточка 2
+
                 BentoCard(
                     modifier = Modifier.weight(1f).height(140.dp),
                     title = "Clean Architecture",

@@ -1,82 +1,73 @@
 package com.voronkin.kmpfolio.screen
+
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import cafe.adriel.voyager.core.model.rememberScreenModel
 import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.navigator.LocalNavigator
-import cafe.adriel.voyager.navigator.currentOrThrow
-import com.voronkin.kmpfolio.ui.components.BentoCard
+import com.voronkin.kmpfolio.ui.components.ResumeBentoGrid
 
 class HomeScreen : Screen {
 
     @Composable
     override fun Content() {
-        val navigator = LocalNavigator.currentOrThrow
+        val model = rememberScreenModel { HomeScreenModel() }
+        val state by model.state.collectAsState()
 
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .background(Color.Black)
                 .padding(16.dp)
+                .verticalScroll(rememberScrollState())
         ) {
-            Text(
-                "My Stack",
-                color = Color.White,
-                style = MaterialTheme.typography.headlineMedium,
-                modifier = Modifier.padding(bottom = 16.dp)
-            )
-
-            FlowRow(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp),
-                maxItemsInEachRow = 2 // На мобилках будет 2 в ряд или 1
-            ) {
-                // Большая карточка (занимает всю ширину)
-                BentoCard(
-                    modifier = Modifier.fillMaxWidth().height(160.dp),
-                    title = "Android & KMP",
-                    subtitle = "10+ years of native development",
-                    backgroundGradient = listOf(Color(0xFF434343), Color(0xFF000000))
-                ) {
-                    // Здесь может быть твоя кастомная иконка или Canvas-рисунок
-                    Text("🤖", fontSize = 60.sp, modifier = Modifier.offset(x = 10.dp, y = 10.dp))
+            when (val current = state) {
+                is ResumeState.Loading -> {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        CircularProgressIndicator(color = Color.White)
+                    }
                 }
 
-                // Маленькая карточка 1
-                BentoCard(
-                    modifier = Modifier.weight(1f).height(140.dp),
-                    title = "LLM",
-                    subtitle = "AI Agents",
-                    backgroundGradient = listOf(Color(0xFF00c6ff), Color(0xFF0072ff)),
-                    onClick = { navigator.push(DetailScreen()) }
-                )
+                is ResumeState.Error -> {
+                    Text(
+                        text = "Error: ${current.message}",
+                        color = Color.Red,
+                        style = MaterialTheme.typography.bodyLarge,
+                    )
+                }
 
-                // Маленькая карточка 2
-                BentoCard(
-                    modifier = Modifier.weight(1f).height(140.dp),
-                    title = "Clean Architecture",
-                    backgroundGradient = listOf(Color(0xFFf953c6), Color(0xFFb91d73))
-
-                )
-                Spacer(modifier = Modifier.height(24.dp))
-                Button(onClick = { navigator.pop() }) {
-                    Text("Go back")
+                is ResumeState.Success -> {
+                    val resume = current.resume
+                    Text(
+                        resume.personalInformation.name,
+                        color = Color.White,
+                        style = MaterialTheme.typography.headlineMedium,
+                        modifier = Modifier.padding(top = 16.dp, bottom = 4.dp),
+                    )
+                    Text(
+                        resume.jobPreferences.desiredPosition,
+                        color = Color.White,
+                        style = MaterialTheme.typography.headlineSmall,
+                        modifier = Modifier.padding(bottom = 16.dp),
+                    )
+                    ResumeBentoGrid(resume = resume)
                 }
             }
         }

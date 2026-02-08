@@ -40,7 +40,7 @@ fun BentoCard(
 
     Box(
         modifier = modifier
-            .graphicsLayer { // Используем для оптимизации отрисовки шкалы
+            .graphicsLayer {
                 scaleX = scale
                 scaleY = scale
             }
@@ -48,7 +48,7 @@ fun BentoCard(
             .background(Brush.linearGradient(backgroundGradient))
             .clickable(
                 interactionSource = interactionSource,
-                indication = null, // Убираем стандартный ripple, чтобы не дешевить вид
+                indication = null,
                 onClick = onClick
             )
             .padding(20.dp)

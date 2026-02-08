@@ -1,0 +1,101 @@
+{
+  "personal_information": {
+    "name": "Alexander Voronkin",
+    "age": 43,
+    "birth_date": "July 5, 1979",
+    "location": "Almaty",
+    "citizenship": "Russia",
+    "contact": {
+      "phone": "+7 (747) 6101679",
+      "email": "alexander.voronkin@gmail.com"
+    }
+  },
+  "job_preferences": {
+    "desired_position": "Android developer",
+    "specializations": ["Android developer", "Backend developer"],
+    "employment_type": ["Project work", "Internship", "Part-time", "Full-time"],
+    "schedule": ["Remote", "Flexible", "Full day", "Shift work"],
+    "relocation": "Not ready",
+    "business_trips": "Not ready"
+  },
+  "work_experience": [
+    {
+      "period": "August 2016 - May 2019",
+      "duration": "2 years 10 months",
+      "company": "Dva Okeana, OOO",
+      "position": "IT Engineer",
+      "responsibilities": [
+        "Development of service tools",
+        "Website development (backend, frontend)"
+      ]
+    },
+    {
+      "period": "January 2010 - August 2014",
+      "duration": "4 years 8 months",
+      "company": "Antor Business Solutions, OOO",
+      "position": "Lead Software Engineer",
+      "responsibilities": [
+        "Development of service tools",
+        "Participation in the development of ANTOR Monitor Master (transport monitoring software)",
+        "Testing and programming firmware for monitoring equipment"
+      ],
+      "technologies": ["Delphi", "Java"]
+    },
+    {
+      "period": "August 2007 - January 2010",
+      "duration": "2 years 6 months",
+      "company": "Antor Business Solutions, OOO",
+      "position": "Deputy Head of Telematics Equipment Installation Department",
+      "responsibilities": [
+        "Development of service tools",
+        "Monitoring equipment installation for ANTOR Monitor Master",
+        "Integration of installed equipment into the system",
+        "Registration of client requests"
+      ]
+    },
+    {
+      "period": "June 2003 - April 2007",
+      "duration": "3 years 11 months",
+      "company": "Antor Business Solutions, OOO",
+      "position": "Head of Telematics Equipment Installation Department / Software Engineer 2nd Category",
+      "responsibilities": [
+        "Participation in development of ANTOR LogisticsMaster (route planning module)",
+        "Participation in development of ANTOR Monitor Master",
+        "Firmware testing and programming",
+        "Development of service tools"
+      ],
+      "technologies": ["Delphi", "Java"]
+    },
+    {
+      "period": "May 2002 - December 2002",
+      "duration": "8 months",
+      "company": "ZAO Arsenal",
+      "position": "Programmer",
+      "responsibilities": [
+        "Custom software development",
+        "Software localization"
+      ]
+    }
+  ],
+  "education": {
+    "level": "Higher",
+    "year": 2001,
+    "institution": "Moscow State University of Railway Engineering",
+    "faculty": "Technical Cybernetics",
+    "specialization": "Software for Computing and Automated Systems"
+  },
+  "skills": {
+    "languages": {
+      "Russian": "Native",
+      "English": "B1 (Intermediate)"
+    },
+    "technical_skills": [
+      "Java", "JavaScript", "Android", "Linux", "HTML5", "Kotlin", "Git",
+      "Bootstrap", "WordPress", "CSS", "jQuery", "IntelliJ IDEA", "Java SE",
+      "MVC", "Entity Framework", "Libgdx"
+    ]
+  },
+  "additional_info": {
+    "about_me": "Disciplined, erudite, no bad habits. Married, two children."
+  }
+}

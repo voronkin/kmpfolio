@@ -18,6 +18,6 @@ class ResumeRepository {
 
     companion object {
         private const val RESUME_URL =
-            "https://gist.githubusercontent.com/voronkin/ca35f901d446b5a17256290279c3ee95/raw/c845e9273f939d91f581fc931821509e71993102/resume.json"
+            "https://gist.githubusercontent.com/voronkin/ca35f901d446b5a17256290279c3ee95/raw/d203da078eb2cb1c295a25ccf1a8b19aa01acffc/resume.json?cb=12345"
     }
 }

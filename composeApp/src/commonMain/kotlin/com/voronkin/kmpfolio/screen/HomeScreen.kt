@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
@@ -34,6 +35,7 @@ class HomeScreen : Screen {
                 .background(Color.Black)
                 .padding(16.dp)
                 .verticalScroll(rememberScrollState())
+                .statusBarsPadding()
         ) {
             when (val current = state) {
                 is ResumeState.Loading -> {
@@ -55,18 +57,7 @@ class HomeScreen : Screen {
 
                 is ResumeState.Success -> {
                     val resume = current.resume
-                    Text(
-                        resume.personalInformation.name,
-                        color = Color.White,
-                        style = MaterialTheme.typography.headlineMedium,
-                        modifier = Modifier.padding(top = 16.dp, bottom = 4.dp),
-                    )
-                    Text(
-                        resume.jobPreferences.desiredPosition,
-                        color = Color.White,
-                        style = MaterialTheme.typography.headlineSmall,
-                        modifier = Modifier.padding(bottom = 16.dp),
-                    )
+
                     ResumeBentoGrid(resume = resume)
                 }
             }

@@ -12,9 +12,22 @@
   },
   "job_preferences": {
     "desired_position": "Android developer",
-    "specializations": ["Android developer", "Backend developer"],
-    "employment_type": ["Project work", "Internship", "Part-time", "Full-time"],
-    "schedule": ["Remote", "Flexible", "Full day", "Shift work"],
+    "specializations": [
+      "Android developer",
+      "Backend developer"
+    ],
+    "employment_type": [
+      "Project work",
+      "Internship",
+      "Part-time",
+      "Full-time"
+    ],
+    "schedule": [
+      "Remote",
+      "Flexible",
+      "Full day",
+      "Shift work"
+    ],
     "relocation": "Not ready",
     "business_trips": "Not ready"
   },
@@ -39,7 +52,10 @@
         "Participation in the development of ANTOR Monitor Master (transport monitoring software)",
         "Testing and programming firmware for monitoring equipment"
       ],
-      "technologies": ["Delphi", "Java"]
+      "technologies": [
+        "Delphi",
+        "Java"
+      ]
     },
     {
       "period": "August 2007 - January 2010",
@@ -64,7 +80,10 @@
         "Firmware testing and programming",
         "Development of service tools"
       ],
-      "technologies": ["Delphi", "Java"]
+      "technologies": [
+        "Delphi",
+        "Java"
+      ]
     },
     {
       "period": "May 2002 - December 2002",
@@ -90,8 +109,19 @@
       "English": "B1 (Intermediate)"
     },
     "technical_skills": [
-      "Java", "JavaScript", "Android", "Linux", "HTML5", "Kotlin", "Git",
-      "Bootstrap", "WordPress", "CSS", "jQuery", "IntelliJ IDEA", "Java SE",
+      "Java",
+      "JavaScript",
+      "Android",
+      "Linux",
+      "HTML5",
+      "Kotlin",
+      "Git",
+      "Bootstrap",
+      "WordPress",
+      "CSS",
+      "jQuery",
+      "IntelliJ IDEA",
+      "Java SE",
       "MVC"
     ]
   },

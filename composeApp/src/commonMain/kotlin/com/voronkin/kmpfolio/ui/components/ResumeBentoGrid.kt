@@ -1,16 +1,9 @@
 package com.voronkin.kmpfolio.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -50,13 +43,13 @@ fun ResumeBentoGrid(
         ) {
             AsyncImage(
                 model = "https://raw.githubusercontent.com/voronkin/kmpfolio/refs/heads/main/me.jpg",
-                contentDescription = "Project Screenshot",
+                contentDescription = "My avatar",
                 modifier = Modifier
-                    .size(80.dp, 80.dp) // Размер картинки внутри карточки
-                    .offset(x = 10.dp, y = 10.dp) // Смещаем в угол, как в Bento-стиле
+                    .size(80.dp, 80.dp)
+                    .offset(x = 10.dp, y = 10.dp)
                     .clip(RoundedCornerShape(12.dp)),
-                contentScale = ContentScale.Crop, // Обрезает картинку, чтобы заполнила область
-                // Индикатор загрузки (пока качается картинка)
+                contentScale = ContentScale.Crop,
+
                 placeholder = ColorPainter(Color.Gray.copy(alpha = 0.3f)),
                 error = ColorPainter(Color.Red.copy(alpha = 0.1f))
             )
@@ -65,12 +58,35 @@ fun ResumeBentoGrid(
 
         // Skills card
         BentoCard(
-            modifier = Modifier.weight(1f).height(180.dp),
-            title = "Skills",
-            subtitle = resume.skills.technicalSkills.take(50).joinToString(", "),
-            onClick = { navigator.push(DetailScreen()) },
+            modifier = Modifier.weight(1f),
+            title = "",
+            subtitle = "",
             backgroundGradient = listOf(Color(0xFF00c6ff), Color(0xFF0072ff)),
-        )
+        ) {
+            Column(modifier = Modifier.align(Alignment.TopStart)) {
+                Text(
+                    "Skills",
+                    color = Color.White,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold
+                )
+                for (skill in resume.skills.technicalSkills) {
+                    Text(
+                        modifier = Modifier.padding(top = 2.dp, bottom = 2.dp),
+                        text = "- $skill",
+                        color = Color.White,
+                        fontSize = 18.sp
+                    )
+
+                }
+
+                Spacer(modifier = Modifier.height(24.dp))
+                Button(onClick = { navigator.push(DetailScreen()) }) {
+                    Text("Go to showroom")
+                }
+            }
+
+        }
 
         // Languages card
         BentoCard(
@@ -121,7 +137,7 @@ fun ResumeBentoGrid(
                 Spacer(
                     modifier = Modifier
                         .padding(top = 2.dp, bottom = 2.dp)
-                        .fillMaxWidth(1.0f) // Линия только на половину экрана
+                        .fillMaxWidth(1.0f)
                         .height(2.dp)
                         .background(
                             color = Color.White
@@ -142,7 +158,6 @@ fun ResumeBentoGrid(
             }
         }
 
-        // About me card
         BentoCard(
             modifier = Modifier.fillMaxWidth().height(120.dp),
             title = "About",

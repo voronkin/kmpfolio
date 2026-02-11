@@ -109,20 +109,8 @@
       "English": "B1 (Intermediate)"
     },
     "technical_skills": [
-      "Java",
-      "JavaScript",
-      "Android",
-      "Linux",
-      "HTML5",
-      "Kotlin",
-      "Git",
-      "Bootstrap",
-      "WordPress",
-      "CSS",
-      "jQuery",
-      "IntelliJ IDEA",
-      "Java SE",
-      "MVC"
+      "Frontend (HTML5, CSS, Bootstrap, JavaScript)",
+      "Backend (Java, Kotlin)"
     ]
   },
   "additional_info": {
